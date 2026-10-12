@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blush & Bloom - Luxury Hair & Spa Services</title>
+    <style>
+        /* Global Styles & Reset */
+        *, html {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #fff5f7; /* Soft pink-tinted background */
+            color: #4a3b40;
+            line-height: 1.6;
+        }
+
+        /* Header Section Styling (Salon Theme) */
+        #head {
+            background: linear-gradient(135deg, #d57189, #b84b66);
+            color: #fff;
+            padding: 30px 0;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
+
+        #head h1 {
+            font-size: 2.5rem;
+            margin-bottom: 5px;
+            color: #fff0f3;
+        }
+
+        #head h4 {
+            font-size: 1.2rem;
+            color: #fce4ec;
+        }
+
+        /* Navigation Bar Styling */
+        nav ul {
+            list-style-type: none;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 12px;
+            background-color: #c9516f; /* Rose pink tone */
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: color 0.2s ease;
+        }
+
+        nav ul li a:hover {
+            color: #ffd1dc;
+            text-decoration: underline;
+        }
+
+        /* Main Content & Section Cards */
+        main {
+            padding: 20px 0;
+        }
+
+        section {
+            max-width: 900px;
+            padding: 25px;
+            margin: 15px auto;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 3px 3px 12px rgba(184, 75, 102, 0.08);
+        }
+
+        section h2 {
+            margin-bottom: 15px;
+            color: #c9516f;
+            border-bottom: 2px solid #fce4ec;
+            padding-bottom: 8px;
+        }
+
+        /* Large Hero Banner Image Styling */
+        .hero-banner {
+            max-width: 900px;
+            margin: 15px auto 0 auto;
+            padding: 0;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 3px 3px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero-banner img {
+            width: 100%;
+            height: 380px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Interactive Menu using Details & Summary Tags */
+        details {
+            margin-bottom: 12px;
+            border: 1px solid #f8bbd0;
+            border-radius: 8px;
+            background-color: #fff9fa;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        summary {
+            padding: 15px 20px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            background-color: #fce4ec;
+            color: #883348;
+            cursor: pointer;
+            outline: none;
+            user-select: none;
+        }
+
+        summary:hover {
+            background-color: #f8bbd0;
+        }
+
+        .menu-content {
+            padding: 15px 20px;
+        }
+
+        /* Menu Item Layout with Images */
+        .menu-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+            padding-bottom: 12px;
+            border-bottom: 1px dashed #fce4ec;
+        }
+
+        .menu-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .dish-img {
+            width: 75px;
+            height: 75px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 1px solid #f8bbd0;
+            flex-shrink: 0;
+        }
+
+        .item-details {
+            flex-grow: 1;
+        }
+
+        .item-name {
+            font-weight: 600;
+            color: #4a3b40;
+            font-size: 1.05rem;
+        }
+
+        .item-desc {
+            font-size: 0.9rem;
+            color: #77656b;
+            margin-top: 2px;
+        }
+
+        .item-price {
+            font-weight: 700;
+            color: #c9516f;
+            font-size: 1.1rem;
+            white-space: nowrap;
+            margin-left: 10px;
+        }
+
+        /* Table Booking Form Styling */
+        .booking-form {
+            display: grid;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .form-group label {
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: #883348;
+        }
+
+        .form-group input, 
+        .form-group select, 
+        .form-group textarea {
+            padding: 10px;
+            border: 1px solid #f8bbd0;
+            border-radius: 6px;
+            font-size: 1rem;
+            background-color: #fff9fa;
+        }
+
+        .form-group input:focus, 
+        .form-group select:focus, 
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #c9516f;
+            box-shadow: 0 0 5px rgba(201, 81, 111, 0.2);
+        }
+
+        .book-btn {
+            background-color: #c9516f;
+            color: #fff;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            margin-top: 5px;
+        }
+
+        .book-btn:hover {
+            background-color: #a33b55;
+        }
+
+        /* Footer Styling */
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #77656b;
+            font-size: 0.9rem;
+            background-color: #fff;
+            border-top: 1px solid #f8bbd0;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header id="head">
+        <h1>Blush & Bloom</h1>
+        <h4>Luxury Hair & Beauty Salon</h4>
+    </header>
+
+    <!-- Navigation Menu -->
+    <nav aria-label="Salon Navigation">
+        <ul>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#menu">Our Services</a></li>
+            <li><a href="#booking">Book an Appointment</a></li>
+            <li><a href="#hours">Hours & Location</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main>
+        <!-- Large Header / Hero Image Section -->
+        <div class="hero-banner">
+            <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=1600&auto=format&fit=crop&q=80" alt="Salon Interior Ambiance">
+        </div>
+
+        <!-- About Section -->
+        <section id="about">
+            <h2>Welcome to Our Sanctuary</h2>
+            <p>At Blush & Bloom, we combine professional styling techniques with premium, nourishing products to pamper you from head to toe. Whether you are looking for a complete makeover, routine maintenance, or a relaxing spa day, every treatment is tailored to enhance your natural beauty.</p>
+        </section>
+
+        <!-- Menu Section using Details Tag & Images -->
+        <section id="menu">
+            <h2>Service Menu</h2>
+            <p style="margin-bottom: 15px; color: #77656b;">Click on any category below to browse our professional treatments:</p>
+
+            <!-- Hair Services Category -->
+            <details open>
+                <summary>💇‍♀️ Hair Styling & Treatments</summary>
+                <div class="menu-content">
+                    <div class="menu-item">
+                        <img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?w=150&auto=format&fit=crop&q=80" alt="Haircut and Styling" class="dish-img">
+                        <div class="item-details">
+                            <div class="item-name">Signature Cut & Blowout</div>
+                            <div class="item-desc">Precision haircut tailored to your face shape, followed by a professional wash and blowout.</div>
+                        </div>
+                        <div class="item-price">$65.00</div>
+                    </div>
+                    <div class="menu-item">
+                        <img src="https://images.unsplash.com/photo-1527799820374-dcf8d9d4a388?w=150&auto=format&fit=crop&q=80" alt="Hair Coloring" class="dish-img">
+                        <div class="item-details">
+                            <div class="item-name">Balayage & Gloss Treatment</div>
+                            <div class="item-desc">Hand-painted highlights for a seamless, sun-kissed look finished with a luminous gloss.</div>
+                        </div>
+                        <div class="item-price">$145.00</div>
+                    </div>
+                </div>
+            </details>
+
+            <!-- Face & Skin Category -->
+            <details>
+                <summary>✨ Facials & Skincare</summary>
+                <div class="menu-content">
+                    <div class="menu-item">
+                        <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=150&auto=format&fit=crop&q=80" alt="Facial" class="dish-img">
+                        <div class="item-details">
+                            <div class="item-name">Glow Hydrating Facial</div>
+                            <div class="item-desc">Deep cleansing, gentle exfoliation, and a restorative vitamin-infusion mask for glowing skin.</div>
+                        </div>
+                        <div class="item-price">$90.00</div>
+                    </div>
+                    <div class="menu-item">
+                        <img src="https://images.unsplash.com/photo-1512290900672-ed2a514d0263?w=150&auto=format&fit=crop&q=80" alt="Anti-aging Treatment" class="dish-img">
+                        <div class="item-details">
+                            <div class="item-name">Rejuvenating Collagen Treatment</div>
+                            <div class="item-desc">Advanced anti-aging therapy designed to firm, smooth, and revitalize facial contours.</div>
+                        </div>
+                        <div class="item-price">$120.00</div>
+                    </div>
+                </div>
+            </details>
+
+            <!-- Nails & Spa Category -->
+            <details>
+                <summary>💅 Nails & Spa Care</summary>
+                <div class="menu-content">
+                    <div class="menu-item">
+                        <img src="https://images.unsplash.com/photo-1632345031435-8727f6c97d34?w=150&auto=format&fit=crop&q=80" alt="Manicure" class="dish-img">
+                        <div class="item-details">
+                            <div class="item-name">Luxury Gel Manicure & Pedicure</div>
+                            <div class="item-desc">Complete nail shaping, cuticle care, hand massage, and long-lasting gel polish application.</div>
+                        </div>
+                        <div class="item-price">$75.00</div>
+                    </div>
+                    <div class="menu-item">
+                        <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=150&auto=format&fit=crop&q=80" alt="Massage" class="dish-img">
+                        <div class="item-details">
+                            <div class="item-name">Aromatherapy Relaxation Massage</div>
+                            <div class="item-desc">Soothing full-body massage utilizing custom-blended essential oils to melt away tension.</div>
+                        </div>
+                        <div class="item-price">$95.00</div>
+                    </div>
+                </div>
+            </details>
+        </section>
+
+        <!-- Table Booking / Appointment Section -->
+        <section id="booking">
+            <h2>Book an Appointment</h2>
+            <p style="color: #77656b; margin-bottom: 15px;">Schedule your pampering session with us by securing an appointment in advance.</p>
+            
+            <form class="booking-form" action="#" method="POST">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" placeholder="example@gmail.com" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" placeholder="Enter phone number" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="guests">Service Package</label>
+                        <select id="guests" name="guests" required>
+                            <option value="">Select a service</option>
+                            <option value="hair">Hair Styling & Cut</option>
+                            <option value="color">Balayage & Color</option>
+                            <option value="facial">Hydrating Facial</option>
+                            <option value="nails">Gel Mani/Pedi</option>
+                            <option value="spa">Full Spa Package</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="date">Appointment Date</label>
+                        <input type="date" id="date" name="date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="time">Preferred Time</label>
+                        <input type="time" id="time" name="time" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="requests">Special Requests / Preferences</label>
+                    <textarea id="requests" name="requests" rows="3" placeholder="Let us know your preferred stylist or any special hair/skin needs..."></textarea>
+                </div>
+
+                <button type="submit" class="book-btn">Confirm Appointment</button>
+            </form>
+        </section>
+
+        <!-- Hours & Location Section -->
+        <section id="hours">
+            <h2>Hours & Location</h2>
+            <p><strong>Address:</strong> 128 Blossom Boulevard, Glamour District</p>
+            <p style="margin-top: 8px;"><strong>Operating Hours:</strong> Tuesday – Sunday: 9:00 AM – 8:00 PM (Monday Closed)</p>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Blush & Bloom. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
