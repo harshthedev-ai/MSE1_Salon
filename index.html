@@ -272,6 +272,7 @@
             margin-top: 8px;
         }
 
+        /* Team Card Enhancements for Hover Effect */
         .team-member {
             flex: 1 1 calc(33.333% - 20px);
             box-sizing: border-box;
@@ -281,6 +282,35 @@
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.05);
             text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        /* Extra details overlay hidden by default */
+        .team-bio {
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, opacity 0.4s ease, margin-top 0.4s ease;
+            font-size: 0.85rem;
+            color: #665258;
+            border-top: 1px dashed #f8bbd0;
+            margin-top: 0;
+            padding-top: 0;
+            text-align: left;
+        }
+
+        /* Reveal extra details on hover */
+        .team-member:hover .team-bio {
+            max-height: 150px;
+            opacity: 1;
+            margin-top: 10px;
+            padding-top: 10px;
+        }
+
+        .team-bio p {
+            margin-bottom: 4px;
         }
 
         /* Footer Styling */
@@ -410,16 +440,28 @@
                     <img src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?w=150&auto=format&fit=crop&q=80" alt="Stylist Jane Doe" class="dish-img">
                     <h4>Jane Doe</h4>
                     <p>Lead Stylist & <br>Color Specialist</p>
+                    <div class="team-bio">
+                        <p><strong>Experience:</strong> 8 Years</p>
+                        <p><strong>Specialty:</strong> Dimensional Balayage & Precision Cuts</p>
+                    </div>
                 </div>
                 <div class="team-member">
                     <img src="https://images.unsplash.com/photo-1595152772835-219674b2a8a6?w=150&auto=format&fit=crop&q=80" alt="Therapist John Smith" class="dish-img">
                     <h4>John Smith</h4>
                     <p>Licensed Massage <br>Therapist</p>
+                    <div class="team-bio">
+                        <p><strong>Experience:</strong> 6 Years</p>
+                        <p><strong>Specialty:</strong> Deep Tissue & Aromatherapy</p>
+                    </div>
                 </div>
                 <div class="team-member">
                     <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150&auto=format&fit=crop&q=80" alt="Esthetician Emily Clark" class="dish-img">
                     <h4>Emily Clark</h4>
                     <p>Certified Esthetician & Skincare Expert</p>
+                    <div class="team-bio">
+                        <p><strong>Experience:</strong> 5 Years</p>
+                        <p><strong>Specialty:</strong> Anti-Aging Facials & Glow Therapies</p>
+                    </div>
                 </div>
             </div>
         </section>
