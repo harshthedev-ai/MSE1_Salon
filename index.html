@@ -153,6 +153,17 @@
             border-bottom: 1px dashed #fce4ec;
         }
 
+        .menu-item-discount {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: linear-gradient(135deg, #b2902d 0%, #F8DA8D 33%, #dfab32 67%, #FBD284 100%);
+            margin-bottom: 15px;
+            border-radius: 8px;
+            padding-bottom: 12px;
+            border-bottom: 1px dashed #fce4ec;
+        }
+
         .menu-item:last-child {
             border-bottom: none;
             margin-bottom: 0;
@@ -325,13 +336,13 @@
             <details open>
                 <summary>💇‍♀️ Hair Styling & Treatments</summary>
                 <div class="menu-content">
-                    <div class="menu-item">
+                    <div class="menu-item-discount">
                         <img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?w=150&auto=format&fit=crop&q=80" alt="Haircut and Styling" class="dish-img">
                         <div class="item-details">
                             <div class="item-name">Signature Cut & Blowout</div>
                             <div class="item-desc">Precision haircut tailored to your face shape, followed by a professional wash and blowout.</div>
                         </div>
-                        <div class="item-price">$65.00</div>
+                        <div class="item-price"><p style="text-decoration: line-through;"> $65.00 </p> $49.99!</div>
                     </div>
                     <div class="menu-item">
                         <img src="https://images.unsplash.com/photo-1527799820374-dcf8d9d4a388?w=150&auto=format&fit=crop&q=80" alt="Hair Coloring" class="dish-img">
